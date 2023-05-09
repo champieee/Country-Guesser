@@ -10,7 +10,8 @@ namespace GeoGuesser
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-            g1.getGuess();
+            g1.getGuess(userText.Text);
+            userText.Clear();
         }
     }
 }

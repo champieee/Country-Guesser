@@ -36,9 +36,9 @@ public Game(){
       }
 }
 
-  public bool getGuess(){
+  public bool getGuess(String input){
     Console.WriteLine("Write Your Guess");
-    guess += Console.ReadLine();
+    guess += input;
         
         if (guess.Equals(answer) && guess != null)
         {
