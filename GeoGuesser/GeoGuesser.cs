@@ -32,7 +32,7 @@ public Game(){
     }
     
     else {
-      seconds = 3;
+      seconds = 100;
       }
 }
 
