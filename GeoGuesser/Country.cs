@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 class Country {
 
-void Country
-{
+public Country(){
 
 }
 
