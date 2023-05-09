@@ -6,5 +6,10 @@ namespace GeoGuesser
         {
             InitializeComponent();
         }
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
