@@ -36,21 +36,25 @@ public Game(){
       }
 }
 
-  public void getGuess(){
+  public bool getGuess(){
     Console.WriteLine("Write Your Guess");
-    guess = Console.ReadLine();
-  }
+    guess += Console.ReadLine();
+        
+        if (guess.Equals(answer) && guess != null)
+        {
+            nextQuestion();
+            totalScore += roundScore;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
-  public bool checkAnswer(){
-    if(guess.Equals(answer)){
-      nextQuestion();
-      totalScore += roundScore;
-      return true;
+        guess = "";
     }
-    else{
-      return false;
-    }
-  }
+
+  
 
   public void nextQuestion(){
   questionNum += 1;
