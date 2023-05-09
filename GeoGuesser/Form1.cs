@@ -6,10 +6,12 @@ namespace GeoGuesser
         {
             InitializeComponent();
         }
+        Game g1 = new Game();
 
         private void enterButton_Click(object sender, EventArgs e)
         {
-
+            g1.getGuess();
+            g1.checkAnswer();
         }
     }
 }
