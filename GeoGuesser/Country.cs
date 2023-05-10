@@ -9,14 +9,17 @@ public Country(){
 }
 
 Dictionary<int, ArrayList> countries = new Dictionary<int, ArrayList>();
+int index = 0;
 
 public void fillCountries(String s, String url){
-     ArrayList fillCountries = new ArrayList();
+     
+     ArrayList countryNamess = new ArrayList();
 
-            fillCountries(s);
-            fillCountries(url);
-            countries.Add(0, fillCountries);
-            fillCountries.Clear();
+            countryNames.Add(s);
+            countryNames.Add(url);
+            countries.Add(index, fillCountries);
+            countryNames.Clear();
+            index ++;
 
 }
 
