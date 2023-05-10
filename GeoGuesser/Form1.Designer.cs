@@ -33,6 +33,7 @@
             this.Title = new System.Windows.Forms.Label();
             this.mapBox = new System.Windows.Forms.PictureBox();
             this.Timer = new System.Windows.Forms.Label();
+            this.scoreLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,11 +81,21 @@
             this.Timer.TabIndex = 4;
             this.Timer.Text = "Timer: ";
             // 
+            // scoreLbl
+            // 
+            this.scoreLbl.AutoSize = true;
+            this.scoreLbl.Location = new System.Drawing.Point(652, 33);
+            this.scoreLbl.Name = "scoreLbl";
+            this.scoreLbl.Size = new System.Drawing.Size(42, 15);
+            this.scoreLbl.TabIndex = 6;
+            this.scoreLbl.Text = "Score: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.scoreLbl);
             this.Controls.Add(this.Timer);
             this.Controls.Add(this.mapBox);
             this.Controls.Add(this.Title);
@@ -104,5 +115,6 @@
         private Label Title;
         private PictureBox mapBox;
         private Label Timer;
+        private Label scoreLbl;
     }
 }
