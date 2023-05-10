@@ -20,9 +20,13 @@ namespace GeoGuesser
             nepal.Add("https://webpati.com/wp-content/uploads/2020/07/new-nepal-map.png");
             countries.Add(0, nepal);
             InitializeComponent();
-            string imageLink = (string)countries[0][1];
+
+
+        for(int i = 0; i < 100; i++){
+            string imageLink = (string)countries[0][i];
             mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mapBox.ImageLocation = imageLink;
+        }
         }
         
 
