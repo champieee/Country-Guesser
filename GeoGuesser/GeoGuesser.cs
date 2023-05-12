@@ -17,10 +17,6 @@ public Game(){
   
 }
 
-  public void setQuestion(){
-   questionNum = random. Next(100);   
-  }
-
  public void setDifficulty(String d){
  difficulty = d; 
    if(difficulty == "Easy"){
