@@ -15,10 +15,7 @@ namespace GeoGuesser
         Country c1 = new Country(); 
         Dictionary<int, Array> countries = new Dictionary<int, Array>();
         Dictionary<int, HashSet<string>> keyValuePairs= new Dictionary<int, HashSet<string>>();
-        int score = 0;
-        int index = 0; 
-        
-
+        int score = 0; 
 
         public Form1()
         {
