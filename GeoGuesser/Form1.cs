@@ -25,7 +25,7 @@ namespace GeoGuesser
             c1.fillCountries();
             keyValuePairs = c1.getCountries(); 
             InitializeComponent();
-            string imageLink = keyValuePairs[0].ToArray()[1]; 
+            string imageLink = keyValuePairs[1].ToArray()[1]; 
             mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mapBox.ImageLocation = imageLink;
         }
@@ -35,7 +35,7 @@ namespace GeoGuesser
         {
             g1.getGuess(userText.Text);
 
-            if (userText.Text.Equals(keyValuePairs[0].ToArray()[0]))
+            if (userText.Text.Equals(keyValuePairs[1].ToArray()[0]))
             {
                 score++; 
                 scoreLbl.Text = "Score: " + score;
