@@ -15,24 +15,28 @@ namespace GeoGuesser
         Country c1 = new Country(); 
         Dictionary<int, Array> countries = new Dictionary<int, Array>();
         Dictionary<int, HashSet<string>> keyValuePairs= new Dictionary<int, HashSet<string>>();
-        int score = 0; 
+        int score = 0;
+        int country;
+        Random rnd = new Random();
+        
 
         public Form1()
         {
+            country = rnd.Next(0, 2);
             c1.fillCountries();
             keyValuePairs = c1.getCountries(); 
             InitializeComponent();
-            string imageLink = keyValuePairs[1].ToArray()[1]; 
+            string imageLink = keyValuePairs[country].ToArray()[country]; 
             mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mapBox.ImageLocation = imageLink;
         }
-        
+            
 
         private void enterButton_Click(object sender, EventArgs e)
         {
             g1.getGuess(userText.Text);
 
-            if (userText.Text.Equals(keyValuePairs[1].ToArray()[0]))
+            if (userText.Text.Equals(keyValuePairs[country].ToArray()[country]))
             {
                 score++; 
                 scoreLbl.Text = "Score: " + score;
