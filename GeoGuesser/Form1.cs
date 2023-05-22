@@ -18,21 +18,24 @@ namespace GeoGuesser
         int score = 0;
         int country; 
         Random rnd = new Random();
-        Boolean found;  
-        
+        private Form _firstForm;
+        private Form _secondForm;
+
 
         public Form1()
-        {
-            country = rnd.Next(0, 99);
-            c1.fillCountries();
+        { 
+            country = rnd.Next(0, 28);
+            c1.fillCountriesEasy();
             keyValuePairs = c1.getCountries(); 
             InitializeComponent();
             string imageLink = keyValuePairs[country].ToArray()[1]; 
             mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mapBox.ImageLocation = imageLink;
         }
-            
 
+
+
+        int wrong = 0;
         private void enterButton_Click(object sender, EventArgs e)
         {
             g1.getGuess(userText.Text);
@@ -42,7 +45,19 @@ namespace GeoGuesser
                 score++; 
                 scoreLbl.Text = "Score: " + score;
                 userText.Clear();
-                country = rnd.Next(0, 99);
+                country = rnd.Next(0, 28);
+                string imageLink = keyValuePairs[country].ToArray()[1];
+                mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                mapBox.ImageLocation = imageLink;
+            } else
+            {
+                userText.Clear();
+                wrong++; 
+            }
+
+            if (wrong == 3)
+            {
+                country = rnd.Next(0, 28);
                 string imageLink = keyValuePairs[country].ToArray()[1];
                 mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 mapBox.ImageLocation = imageLink;
