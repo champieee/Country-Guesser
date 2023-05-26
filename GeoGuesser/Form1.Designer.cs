@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.enterButton = new System.Windows.Forms.Button();
             this.userText = new System.Windows.Forms.TextBox();
             this.Title = new System.Windows.Forms.Label();
             this.mapBox = new System.Windows.Forms.PictureBox();
             this.Timer = new System.Windows.Forms.Label();
             this.scoreLbl = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.skipButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,11 +93,28 @@
             this.scoreLbl.TabIndex = 6;
             this.scoreLbl.Text = "Score: ";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // skipButton
+            // 
+            this.skipButton.Location = new System.Drawing.Point(344, 362);
+            this.skipButton.Name = "skipButton";
+            this.skipButton.Size = new System.Drawing.Size(75, 23);
+            this.skipButton.TabIndex = 7;
+            this.skipButton.Text = "Skip";
+            this.skipButton.UseVisualStyleBackColor = true;
+            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.skipButton);
             this.Controls.Add(this.scoreLbl);
             this.Controls.Add(this.Timer);
             this.Controls.Add(this.mapBox);
@@ -116,5 +136,7 @@
         private PictureBox mapBox;
         private Label Timer;
         private Label scoreLbl;
+        private System.Windows.Forms.Timer timer1;
+        private Button skipButton;
     }
 }
