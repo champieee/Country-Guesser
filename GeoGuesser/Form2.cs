@@ -47,10 +47,5 @@ namespace GeoGuesser
             diff = "Easy";
             diffLabel.Text = diff;
         }
-
-        public String getDiff()
-        {
-            return diff;
-        }
     }
 }
