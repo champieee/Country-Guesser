@@ -26,6 +26,9 @@ namespace GeoGuesser
         ArrayList used = new ArrayList();
         Boolean usedBool = false;
 
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\ayush\Downloads\correct.wav");
+
+
         public Form1()
         {
             diff = Form2.diff;
@@ -66,6 +69,7 @@ namespace GeoGuesser
 
             if (userText.Text.Equals(keyValuePairs[country].ToArray()[0]))
             {
+                player.Play();
                 score++; 
                 scoreLbl.Text = "Score: " + score;
                 userText.Clear();
