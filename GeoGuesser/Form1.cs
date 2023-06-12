@@ -6,6 +6,10 @@ using System;
 using System.Security.Cryptography.Xml;
 using System.Security.Policy;
 using System.Diagnostics;
+using System;
+using System.Drawing;
+using System.Net;
+using System.Windows.Forms;
 
 namespace GeoGuesser
 {
@@ -57,11 +61,31 @@ namespace GeoGuesser
             string imageLink = keyValuePairs[country].ToArray()[1]; 
             mapBox.SizeMode = PictureBoxSizeMode.StretchImage;
             mapBox.ImageLocation = imageLink;
-
         }
-
-
-
+        
+        
+        private void SetBackgroundImage(string imageUrl)
+        {
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    byte[] imageData = client.DownloadData(imageUrl);
+                    using (var stream = new System.IO.MemoryStream(imageData))
+                    {
+                        Image backgroundImage = Image.FromStream(stream);
+                        this.BackgroundImage = backgroundImage;
+                        this.BackgroundImageLayout = ImageLayout.Stretch;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that may occur while setting the background image
+                Console.WriteLine("Error setting background image: " + ex.Message);
+            }
+        }
+        
         int wrong = 0;
         private void enterButton_Click(object sender, EventArgs e)
         {
@@ -69,7 +93,7 @@ namespace GeoGuesser
 
             if (userText.Text.Equals(keyValuePairs[country].ToArray()[0]))
             {
-                player.Play();
+                //player.Play();
                 score++; 
                 scoreLbl.Text = "Score: " + score;
                 userText.Clear();
@@ -135,6 +159,19 @@ namespace GeoGuesser
             usedNumbers.Add(randomNumber);
             return randomNumber;
         }
+        
+        private void mapBox_Paint(object sender, PaintEventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            if (pictureBox != null)
+            {
+                using (Pen pen = new Pen(Color.Orange, 2))
+                {
+                    e.Graphics.DrawRectangle(pen, new Rectangle(0, 0, pictureBox.Width - 1, pictureBox.Height - 1));
+                }
+            }
+        }
+
 
     }
 }
